@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.homepage              = %(https://github.com/drzln/#{spec.name})
   spec.license               = %(MIT)
   spec.files                 = `git ls-files`.split($OUTPUT_RECORD_SEPARATOR)
-  spec.require_paths         = [%(src)]
+  spec.require_paths         = [%(lib)]
   spec.executables           = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.required_ruby_version = %(>= #{`cat .ruby-version`})
 
