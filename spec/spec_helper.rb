@@ -1,1 +1,1 @@
-require %(terraform-synthesizer)
+# require %(terraform-synthesizer)

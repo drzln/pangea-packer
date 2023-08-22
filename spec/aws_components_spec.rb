@@ -1,4 +1,4 @@
-require %(terraform-synthesizer)
+# require %(terraform-synthesizer)
 
 # describe %(aws components) do
 #   let(:tf) do
