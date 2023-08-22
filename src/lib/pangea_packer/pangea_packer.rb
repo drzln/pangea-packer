@@ -1,3 +1,4 @@
+require %(json)
 require %(pangea_component/pangea_component)
 
 component resource: :aws_vpc,
