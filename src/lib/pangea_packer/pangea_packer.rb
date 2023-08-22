@@ -1,5 +1,8 @@
 require %(pangea_component/pangea_component)
 
+def entrypoint(**kwargs)
+end
+
 # require %(json)
 
 # def symbolize(hash)
