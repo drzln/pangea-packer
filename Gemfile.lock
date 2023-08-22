@@ -3,11 +3,43 @@ GEM
   specs:
     abstract-synthesizer (0.0.2)
     ast (2.4.2)
+    aws-eventstream (1.2.0)
+    aws-partitions (1.808.0)
+    aws-sdk-core (3.180.3)
+      aws-eventstream (~> 1, >= 1.0.2)
+      aws-partitions (~> 1, >= 1.651.0)
+      aws-sigv4 (~> 1.5)
+      jmespath (~> 1, >= 1.6.1)
+    aws-sdk-dynamodb (1.93.1)
+      aws-sdk-core (~> 3, >= 3.177.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-kms (1.71.0)
+      aws-sdk-core (~> 3, >= 3.177.0)
+      aws-sigv4 (~> 1.1)
+    aws-sdk-s3 (1.132.1)
+      aws-sdk-core (~> 3, >= 3.179.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.6)
+    aws-sigv4 (1.6.0)
+      aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.1.1)
+    citrus (3.0.2)
     diff-lcs (1.5.0)
+    jmespath (1.6.2)
     json (2.6.3)
     keycutter (1.0.2)
     language_server-protocol (3.17.0.3)
+    pangea (0.0.30)
+      abstract-synthesizer
+      aws-sdk-dynamodb
+      aws-sdk-s3
+      terraform-synthesizer
+      toml-rb
+      tty-box
+      tty-color
+      tty-option
+      tty-progressbar
+      tty-table
     pangea-component (0.0.2)
       abstract-synthesizer
       terraform-synthesizer
@@ -15,6 +47,8 @@ GEM
     parser (3.2.2.3)
       ast (~> 2.4.1)
       racc
+    pastel (0.8.0)
+      tty-color (~> 0.5)
     racc (1.7.1)
     rainbow (3.1.1)
     rake (13.0.6)
@@ -58,8 +92,33 @@ GEM
       rubocop-capybara (~> 2.17)
       rubocop-factory_bot (~> 2.22)
     ruby-progressbar (1.13.0)
+    strings (0.2.1)
+      strings-ansi (~> 0.2)
+      unicode-display_width (>= 1.5, < 3.0)
+      unicode_utils (~> 1.4)
+    strings-ansi (0.2.0)
     terraform-synthesizer (0.0.2)
+    toml-rb (2.2.0)
+      citrus (~> 3.0, > 3.0)
+    tty-box (0.7.0)
+      pastel (~> 0.8)
+      strings (~> 0.2.0)
+      tty-cursor (~> 0.7)
+    tty-color (0.6.0)
+    tty-cursor (0.7.1)
+    tty-option (0.3.0)
+    tty-progressbar (0.18.2)
+      strings-ansi (~> 0.2)
+      tty-cursor (~> 0.7)
+      tty-screen (~> 0.8)
+      unicode-display_width (>= 1.6, < 3.0)
+    tty-screen (0.8.1)
+    tty-table (0.12.0)
+      pastel (~> 0.8)
+      strings (~> 0.2.0)
+      tty-screen (~> 0.8)
     unicode-display_width (2.4.2)
+    unicode_utils (1.4.0)
     yard (0.9.34)
 
 PLATFORMS
@@ -68,6 +127,7 @@ PLATFORMS
 DEPENDENCIES
   abstract-synthesizer
   keycutter
+  pangea
   pangea-component
   rake
   rspec

@@ -5,6 +5,7 @@ group :development do
     rubocop-rspec
     rubocop-rake
     keycutter
+    pangea
     rspec
     rake
     yard
