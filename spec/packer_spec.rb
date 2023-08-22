@@ -58,13 +58,23 @@ describe %(packer architecture) do
     end
   end
 
-  it %(has correctly set vpcs) do
+  it %(has correctly set vpc tags) do
     synthesis = symbolize(tf.synthesis)
     aws_vpcs  = synthesis[:resource][:aws_vpc]
 
     aws_vpcs.each_key do |vpc_name|
       aws_vpc = aws_vpcs[vpc_name]
       expect(symbolize(aws_vpc[:tags])).to eq(symbolize({ Name: :packer_testing }))
+    end
+  end
+
+  it %(has correctly set vpc cidr_block) do
+    synthesis = symbolize(tf.synthesis)
+    aws_vpcs  = synthesis[:resource][:aws_vpc]
+
+    aws_vpcs.each_key do |vpc_name|
+      aws_vpc = aws_vpcs[vpc_name]
+      expect(aws_vpc[:cidr_block]).to eq(%(10.2.0.0/16))
     end
   end
 end
