@@ -12,4 +12,8 @@ describe %(packer architecture) do
   it %(returns a hash) do
     expect(tf.synthesis).to be_a(Hash)
   end
+
+  it %(contains at least one vpc) do
+    expect(tf.synthesis[:resource].keys.map(&:to_sym).include?(:aws_vpc)).to be(true)
+  end
 end
