@@ -8,7 +8,7 @@ describe %(packer architecture) do
   before do
     tf.synthesize(
       File.read(
-        %(./src/lib/pangea_packer/pangea_packer.rb)
+        %(./lib/pangea-packer.rb)
       )
     )
   end
