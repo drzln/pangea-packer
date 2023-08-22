@@ -11,6 +11,21 @@ describe %(packer architecture) do
   end
 
   before do
+
+    tf.synthesize do
+      module PangeaData
+        class << self
+          def data
+            @data ||= {
+              namespace: %(pangea-testing),
+              base_cidr: %(10.2),
+              base_tags: { Name: :packer_testing }
+            }
+          end
+        end
+      end
+    end
+
     tf.synthesize(File.read(%(./lib/pangea-packer.rb)))
   end
 
