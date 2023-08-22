@@ -1,2 +1,2 @@
-# pangea-packer
-create cloud environments for packer
+# pangea-component
+Control resource creation response with components
