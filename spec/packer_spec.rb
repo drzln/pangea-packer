@@ -6,11 +6,7 @@ describe %(packer architecture) do
   end
 
   before do
-    tf.synthesize(
-      File.read(
-        %(./lib/pangea-packer.rb)
-      )
-    )
+    tf.synthesize(File.read(%(./lib/pangea-packer.rb)))
   end
 
   it %(returns a hash) do
