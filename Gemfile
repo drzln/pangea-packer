@@ -17,6 +17,7 @@ group :production do
   %w[
     terraform-synthesizer
     abstract-synthesizer
+    pangea-component
   ].each do |this_gem|
     gem this_gem
   end
