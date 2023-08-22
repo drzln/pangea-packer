@@ -2,7 +2,8 @@ require %(terraform-synthesizer)
 require %(json)
 
 def symbolize(hash)
-  JSON[JSON[hash], symbolize_names: true]
+  str = JSON[hash]
+  JSON[str, symbolize_names: true]
 end
 
 describe %(packer architecture) do
@@ -54,6 +55,16 @@ describe %(packer architecture) do
     aws_vpcs.each_key do |vpc_name|
       aws_vpc = aws_vpcs[vpc_name]
       expect(aws_vpc[:tags]).to be_a(Hash)
+    end
+  end
+
+  it %(has correctly set vpcs) do
+    synthesis = symbolize(tf.synthesis)
+    aws_vpcs  = synthesis[:resource][:aws_vpc]
+
+    aws_vpcs.each_key do |vpc_name|
+      aws_vpc = aws_vpcs[vpc_name]
+      expect(symbolize(aws_vpc[:tags])).to eq(symbolize({ Name: :packer_testing }))
     end
   end
 end
