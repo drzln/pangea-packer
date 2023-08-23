@@ -24,11 +24,18 @@ describe %(infrastructure state) do
   end
 
   let(:config) do
-    deep_ostruct({
-      # directory where we store pangea configuration
-      # and other assets needed to setup test
-      test: { home: %(./spec/test_home/infrastructure_state) }
-    })
+
+    cfg                           = {}
+    cfg[:test]                    = {}
+    cfg[:test][:home]             = %(./spec/test_home/infrastructure_state)
+    cfg[:test][:pangea]           = {}
+    cfg[:test][:pangea][:config]  = File.join(cfg[:test][:home], %(pangea.rb))
+
+    deep_ostruct(cfg)
+  end
+
+  before do
+    system %(mkdir -p #{config.test.home}) unless Dir.exist?(config.test.home)
   end
 
   it %(passes the module test) do
@@ -37,6 +44,10 @@ describe %(infrastructure state) do
 
   it %(creates config ostruct) do
     expect(config.test.home).to be_a(String)
+  end
+
+  it %(created correct directory) do
+    expect(Dir.exist?(config.test.home)).to be(true)
   end
 end
 
